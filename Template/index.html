@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
+    <title>Chart.js Test</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        var myChart = document.getElementById('myChart').getContext('2d');
+
+        //Global Properties
+        Chart.defaults.global.defaultFontFamily= 'Lato';
+        Chart.defaults.global.defaultFontSize= 18;
+        Chart.defaults.global.defaultFontColor= '#777';
+
+
+        var indPopChart =new Chart(myChart, {
+            type: 'pie', //You can set the type of chart here, eg Bar, Pie, Horizontal etc.
+            data:{
+                labels:['Mumbai', 'Chennai', 'Bangalore', 'Pune', 'Surat'],
+                datasets:[{
+                    label:'Population',
+                    data:[12691836, 10927986, 5104047, 4631392, 4328063],
+                    backgroundColor: [
+                        'green', 'red', 'blue', 'orange', 'yellow'
+                    ],
+                    borderWidth:2,
+                    borderColor:'#000',
+                    hoverBackgroundColor:'#d5d5d5',
+                    hoverBorderWidth:3
+                }]
+            },
+            options:{
+                title:{
+                    display:true,
+                    text:'Most Populated Citites in India',
+                    fontSize:25
+                },
+
+                legend:{
+                    position:'right',
+                    labels:{
+                        fontColor:'#000'
+                    }
+                },
+
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        bottom:0,
+                        top:0
+                    },
+                    
+                   
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
